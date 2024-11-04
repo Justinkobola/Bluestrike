@@ -1,4 +1,4 @@
-# Bluestrike
+
 
 - Opensource python tool for jamming bluetooth signals (in the making)
 - Successful in jamming bluetooth speakers
@@ -127,46 +127,4 @@ https://standards-oui.ieee.org/
     
 3. The IEEE maintains a database of all registered OUIs, which currently contains over 22,000 entries.
     
-4. For MAC addresses to be considered valid, they must have an OUI that is registered in the IEEE database. Unregistered OUIs will not work in practice.
-    
-5. The mac_address library that we used in the code example has a copy of the IEEE OUI database. This allows it to generate realistic MAC addresses using registered OUIs.
-    
-So in summary, IEEE assigns and manages the OUIs that form the first 3 bytes of MAC addresses. This ensures globally unique MAC addresses and proper functioning of networking protocols.
-
-- Specified OUI ("00:50:C2"):
-
-```python
-import random
-
-TARGET_OUI = "00:50:C2"
-
-def generate_mac_address(oui):
-    # Generate the last 3 bytes of the MAC address
-    last_bytes = [random.randint(0x00, 0xff) for _ in range(3)]
-    # Concatenate the OUI and the last 3 bytes to form the MAC address
-    mac_address = oui + ":" + ":".join('{:02x}'.format(byte) for byte in last_bytes)
-    return mac_address
-
-# Generate a MAC address with the specified OUI
-mac_with_oui = generate_mac_address(TARGET_OUI)
-print(mac_with_oui)
-```
-
-### FAQ
-
-#### Your Question?
-- Answer
-
-
-### Feedback
-
-If you have any feedback or suggestions, please reach out to me via email at stealthiq[at]protonmail[.]com or [Twitter](https://twitter.com/StealthIQQ).
-
-### Author
-
-- [@Stealthiq](https://www.github.com/stealthiq)
-
-### License
-
-This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
-
+4. For MAC addresses to be considered valid, they must have an OUI that is 
